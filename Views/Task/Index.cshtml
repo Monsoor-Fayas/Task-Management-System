@@ -1,0 +1,24 @@
+﻿@model GetTaskParams
+
+@{
+    ViewData["Title"] = "Task";
+    string CurrDate = DateTime.UtcNow.Date.ToString("yyyy-MM-dd");
+}
+
+<div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="container w-25">
+        <form asp-controller="Task" asp-action="GetTaskList" method="post" class="row">
+            <div>
+                <h2 class="text-center">Select Task Date</h2>
+                <div class="form-group">
+                    <input asp-for="TaskDate" type="date" class="form-control" id="taskDate" placeholder="Enter Task Date" max="@CurrDate" required>
+                    <small id="dateHelp" class="form-text text-muted">Please select date to manage Task Details.</small>
+                </div>
+                <div class="mt-2">
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Select</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
